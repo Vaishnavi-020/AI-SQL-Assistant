@@ -43,9 +43,9 @@ prompt=PromptTemplate(template="""
 
 chain=prompt|llm
 
-question="Show Top 3 product categories with highest sale."
+# question="Show Top 3 product categories with highest sale."
 
-response=chain.invoke({"schema":schema,
-                       "question":question})
+# response=chain.invoke({"schema":schema,
+#                        "question":question})
 
-print(response.content)
+# print(response.content)

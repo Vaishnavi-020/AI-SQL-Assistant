@@ -9,7 +9,7 @@ df=pd.read_csv('app/dataset/Amazon Dataset.csv')
 
 engine = create_engine(os.getenv("DATABASE_URL"))
 
-df.to_sql("Amazon_Sales",
+df.to_sql("amazon_sales",
           engine, 
           if_exists="replace",
           index=False)
