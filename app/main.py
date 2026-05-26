@@ -16,6 +16,9 @@ sql_query=response.content.strip()
 sql_query=sql_query.replace("```sql","")
 sql_query=sql_query.replace("```","").strip()
 
+if not sql_query.lower().startswith(("select","with")):
+    raise ValueError("Only SELECT queries allowed.")
+
 print("Generated SQL:")
 print(sql_query)
 
