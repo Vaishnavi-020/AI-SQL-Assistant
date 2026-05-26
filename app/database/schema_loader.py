@@ -1,5 +1,5 @@
 from sqlalchemy import inspect
-from db_connection import engine
+from .db_connection import engine
 
 def load_schema():
     inspector=inspect(engine)
@@ -16,5 +16,3 @@ def load_schema():
         """
 
     return schema_text
-
-load_schema()
