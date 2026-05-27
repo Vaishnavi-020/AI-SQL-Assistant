@@ -1,4 +1,4 @@
-from .db_connection import engine
+from ..database.db_connection import engine
 import pandas as pd
 from sqlalchemy import text
 

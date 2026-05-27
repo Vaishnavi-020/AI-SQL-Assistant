@@ -1,8 +1,8 @@
-from llm.prompt_template import get_prompt
+from .prompt_template import get_prompt
 from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
-from database.schema_loader import load_schema
+from app.database.schema_loader import load_schema
 import certifi
 
 load_dotenv()

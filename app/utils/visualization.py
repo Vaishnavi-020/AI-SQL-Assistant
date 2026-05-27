@@ -23,7 +23,7 @@ def visualize(df):
         st.subheader("Distribution")
         fig=px.histogram(df,x=numeric_cols[0])
 
-        st.plotly_chart(fig,use_container_width=True)
+        st.plotly_chart(fig,width="stretch")
 
     elif datetime_cols and numeric_cols:
         x_col=datetime_cols[0]
@@ -33,7 +33,7 @@ def visualize(df):
 
         fig=px.line(df,x=x_col,y=y_col)
 
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
 
     elif len(df.columns)==2:
         x_col=df.columns[0]
@@ -49,7 +49,7 @@ def visualize(df):
             )
 
             st.plotly_chart(
-                fig, use_container_width=True
+                fig, width="stretch"
             )
 
     elif (len(categorical_cols)==1 and len(numeric_cols)==1 and len(df)<=10):
@@ -61,7 +61,7 @@ def visualize(df):
             values=numeric_cols[0]
         )
         st.plotly_chart(
-            fig, use_container_width=True
+            fig, width="stretch"
         )
     else:
         st.info(

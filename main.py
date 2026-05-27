@@ -1,7 +1,7 @@
 import streamlit as st
-from llm.sql_generator import generate_sql
-from database.query_executor import execute_query
-from utils.visualization import visualize
+from app.llm.sql_generator import generate_sql
+from app.utils.query_executor import execute_query
+from app.utils.visualization import visualize
 
 st.title("AI SQL Analytics Assistant")
 
