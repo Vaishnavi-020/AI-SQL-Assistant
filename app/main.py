@@ -1,27 +1,32 @@
-from llm import chain
-from database.schema_loader import load_schema
+import streamlit as st
+from llm.sql_generator import generate_sql
 from database.query_executor import execute_query
+from utils.visualization import visualize
 
-schema=load_schema()
+st.title("AI SQL Analytics Assistant")
 
-question=input("Ask a question:")
+question=st.text_input(
+    "Ask your question"
+)
 
-response=chain.invoke({
-    "schema":schema,
-    "question":question
-})
+if st.button("Generate"):
+    try:
+        sql_query=generate_sql(question)
 
-sql_query=response.content.strip()
+        st.subheader("Generated SQL")
+        st.code(sql_query,
+                language="sql")
+        df=execute_query(sql_query)
+        st.subheader("Results")
+        st.dataframe(df)
 
-sql_query=sql_query.replace("```sql","")
-sql_query=sql_query.replace("```","").strip()
-
-if not sql_query.lower().startswith(("select","with")):
-    raise ValueError("Only SELECT queries allowed.")
-
-print("Generated SQL:")
-print(sql_query)
-
-fetched_data=execute_query(sql_query)
-print(f"\nFetched_data:")
-print(fetched_data)
+        visualize(df)
+    except ValueError as e:
+        st.error(
+            f"Error: {str(e)}"
+        )
+    except Exception as e:
+        st.error(
+            f"Unexpected Error:"
+            f"{str(e)}"
+        )
