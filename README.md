@@ -127,26 +127,28 @@ LLM uses the data to generate explanation for business needs in the form of summ
 Data Query AI Assistant/
 │   .env
 │   .gitignore
+│   main.py
 │   README.md
 │   requirements.txt
-│   main.py
-|
-└───app
-    │
-    ├───database
-    │   │   db_connection.py
-    │   │   schema_loader.py
-    │
-    ├───dataset
-    │       Amazon Dataset.csv
-    │
-    ├───llm
-    │   │   prompt_template.py
-    │   │   sql_generator.py
-    │
-    ├───utils
-    │   │   query_executor.py
-    │   │   visualization.py
+│
+├───app
+│   ├───database
+│   │   │   db_connection.py
+│   │   │   schema_loader.py
+│   │
+│   │
+│   ├───llm
+│   │   │   output_generator.py
+│   │   │   prompt_template.py
+│   │
+│   ├───utils
+│   │   │   query_executor.py
+│   │   │   visualization.py
+│
+└───images
+        Explanation.png
+        Result.png
+        sql_generation.png
 
 ```
 
