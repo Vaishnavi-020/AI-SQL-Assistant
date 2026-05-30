@@ -181,6 +181,9 @@ pip install -r requirements.txt
 DATABASE_URL=
 API_KEY=
 
+# Load dataset
+python db_connection.py
+
 # Run Application
 streamlit run main.py
 
