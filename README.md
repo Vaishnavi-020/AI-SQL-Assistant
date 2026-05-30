@@ -160,7 +160,7 @@ Data Query AI Assistant/
 # Clone Repository
 git clone https://github.com/Vaishnavi-020/AI-SQL-Assistant.git
 
-cd AI-SQL-Assistant
+cd Data-Query-AI-Assistant
 
 # Create Virtual Environment
 python -m venv venv
@@ -219,3 +219,6 @@ To solve this, I repeatedly debugged and improved the datatype detection logic b
 ## Author
 
 Vaishnavi Sinha
+
+- **LinkedIn**: [https://www.linkedin.com/in/vaishnavi-sinha-v2005/]
+- **GitHub**: [https://github.com/Vaishnavi-020]
