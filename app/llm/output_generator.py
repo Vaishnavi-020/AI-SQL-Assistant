@@ -1,4 +1,5 @@
-from .prompt_template import get_prompt
+from .prompt_template import get_prompt,analysis_prompt
+from app.utils.query_executor import execute_query
 from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
@@ -29,3 +30,14 @@ def generate_sql(question):
         raise ValueError("Only SELECT queries allowed.")
     
     return sql_query
+
+def generate_analysis(question,sql_query,df):
+    if df is None or df.empty:
+        return "No data available for analysis"
+    df_string=df.head(20).to_string(index=False)
+    prompt=analysis_prompt(question=question,sql_query=sql_query,df=df_string)
+    response=llm.invoke(prompt)
+
+    analysis=response.content
+
+    return analysis

@@ -143,7 +143,6 @@ def get_prompt(schema,question):
 
         User Question:
         {question}
-
         SQL Query:
         """,
         input_variables=["schema","question"])
@@ -151,4 +150,43 @@ def get_prompt(schema,question):
     formatted_prompt=prompt.format(schema=schema,
                                    question=question)
     
+    return formatted_prompt
+
+def analysis_prompt(question,sql_query,df):
+    prompt=PromptTemplate(
+        template="""
+    You are a professional Data Analyst.
+
+    Your task is to analyze SQL query results and explain the findings in simple, professional language.
+
+    User Question:
+    {question}
+
+    Generated SQL Query:
+    {sql_query}
+
+    Returned Data:
+    {df}
+
+    Instructions:
+    1. Explain the key findings from the data.
+    2. Identify important trends, highest/lowest values, patterns, or anomalies if visible.
+    3. Mention comparisons when relevant.
+    4. Keep the explanation concise and professional (3-6 bullet points maximum).
+    5. Do NOT make assumptions beyond the provided data.
+    6. If data is insufficient, explicitly say so.
+    7. If numeric trends are present, mention them.
+    8. Use business-friendly language.
+
+    Output format:
+    - Summary
+    - Key insights
+    - Important observations
+
+    """,
+    input_variables=["user_query","sql_query","df"])
+
+    formatted_prompt=prompt.format(question=question,
+                                   sql_query=sql_query,
+                                   df=df)
     return formatted_prompt

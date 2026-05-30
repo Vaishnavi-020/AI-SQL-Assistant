@@ -3,11 +3,11 @@ import plotly.express as px
 import pandas as pd
 
 def visualize(df):
-    df=df.copy()
     try:
         if df.empty:
             st.warning("No data found")
             return
+        df=df.copy()
         for col in df.columns:
             if df[col].dtype==object:
                 try:
