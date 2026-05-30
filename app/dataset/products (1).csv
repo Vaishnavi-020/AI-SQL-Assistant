@@ -1,0 +1,81 @@
+product_id,product_name,category,price
+P001,Blender,Beauty,272.76
+P002,Perfume,Home,132.09
+P003,Water Bottle,Home,58.58
+P004,Smart Watch,Home,220.82
+P005,Perfume,Home,27.81
+P006,Vacuum Cleaner,Beauty,59.03
+P007,Laptop Stand,Home,244.58
+P008,Smart Watch,Electronics,93.18
+P009,USB Cable,Clothing,156.62
+P010,Yoga Mat,Home,48.44
+P011,Yoga Mat,Home,258.78
+P012,Wireless Mouse,Electronics,185.11
+P013,Perfume,Clothing,201.16
+P014,Jeans,Clothing,85.76
+P015,Running Shoes,Sports,62.43
+P016,Hair Dryer,Electronics,109.43
+P017,USB Cable,Clothing,182.71
+P018,Bluetooth Speaker,Sports,228.3
+P019,Coffee Maker,Sports,79
+P020,Blender,Clothing,71.15
+P021,Jeans,Electronics,196.26
+P022,Keyboard,Electronics,58.6
+P023,Jacket,Sports,97.4
+P024,Face Cream,Clothing,120.14
+P025,Jacket,Sports,86.16
+P026,Hair Dryer,Sports,13.44
+P027,Blender,Sports,206.76
+P028,Hair Dryer,Electronics,38.24
+P029,Face Cream,Home,287.29
+P030,Coffee Maker,Beauty,276.23
+P031,Yoga Mat,Home,88.39
+P032,Keyboard,Home,199.76
+P033,Jacket,Sports,234.21
+P034,Running Shoes,Beauty,233.44
+P035,Hair Dryer,Home,206.54
+P036,Monitor,Home,168.81
+P037,Wireless Mouse,Electronics,13.47
+P038,Keyboard,Beauty,40.13
+P039,Blender,Home,73.63
+P040,Water Bottle,Home,65.99
+P041,Wireless Mouse,Beauty,36.66
+P042,Smart Watch,Clothing,285.64
+P043,Keyboard,Electronics,35.05
+P044,Smart Watch,Clothing,119.03
+P045,Perfume,Clothing,269.84
+P046,Monitor,Home,95.42
+P047,USB Cable,Sports,277.58
+P048,Yoga Mat,Sports,210.74
+P049,T Shirt,Home,56.97
+P050,USB Cable,Home,235.36
+P051,Jacket,Sports,106.47
+P052,Laptop Stand,Home,287.13
+P053,Yoga Mat,Clothing,137.77
+P054,Vacuum Cleaner,Clothing,186.99
+P055,Monitor,Sports,41.44
+P056,Face Cream,Sports,73.33
+P057,Keyboard,Sports,217.47
+P058,Keyboard,Electronics,31.15
+P059,Perfume,Home,235.4
+P060,Wireless Mouse,Sports,53.17
+P061,Wireless Mouse,Electronics,202.74
+P062,Yoga Mat,Clothing,213.02
+P063,Jacket,Beauty,11.07
+P064,Vacuum Cleaner,Sports,136.46
+P065,USB Cable,Beauty,75.5
+P066,Jacket,Sports,45.15
+P067,Face Cream,Home,106.7
+P068,Water Bottle,Sports,26.01
+P069,USB Cable,Home,165.04
+P070,T Shirt,Electronics,253.94
+P071,Water Bottle,Clothing,61.22
+P072,Laptop Stand,Sports,201.61
+P073,Water Bottle,Sports,269.97
+P074,Jeans,Sports,34.61
+P075,Blender,Clothing,50.58
+P076,Backpack,Electronics,218.72
+P077,Perfume,Clothing,151.88
+P078,USB Cable,Beauty,196.59
+P079,Vacuum Cleaner,Beauty,289.84
+P080,Blender,Electronics,20.74
