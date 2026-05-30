@@ -158,7 +158,7 @@ Data Query AI Assistant/
 
 ```bash
 # Clone Repository
-git clone https://github.com/Vaishnavi-020/AI-SQL-Assistant.git
+git clone https://github.com/Vaishnavi-020/Data-Query-AI-Assistant.git
 
 cd Data-Query-AI-Assistant
 
