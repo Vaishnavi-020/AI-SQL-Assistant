@@ -29,5 +29,3 @@ def generate_sql(question):
         raise ValueError("Only SELECT queries allowed.")
     
     return sql_query
-
-    
