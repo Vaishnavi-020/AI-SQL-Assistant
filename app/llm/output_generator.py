@@ -18,6 +18,8 @@ llm=ChatGroq(
 
 def generate_sql(question):
     schema=load_schema()
+    if not question or not question.strip():
+        raise ValueError("Question cannot be empty.")
     scope=scope_prompt(schema=schema,question=question)
     scope_response=llm.invoke(scope)
     is_valid=scope_response.content.strip().upper()
