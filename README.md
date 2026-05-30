@@ -1,6 +1,7 @@
 # Data Query AI Assistant
 
-An AI-powered analytics assistant that converts natural language questions into SQL queries, executes them on a PostgreSQL database, and visualizes insights through charts.
+Built an AI-powered SQL Analytics Assistant using LangChain, PostgreSQL, and Streamlit that converts natural language into SQL queries, executes them on structured databases, generates dynamic visualizations, and produces automated business insights using LLMs.
+
 
 ---
 
@@ -18,6 +19,7 @@ Traditional database querying requires SQL knowledge, making data exploration di
 - SQL execution pipeline
 - Interactive data tables
 - Automatic chart generation
+- Key insights & observations generation for business purpose.
 
 ---
 
@@ -45,22 +47,20 @@ Traditional database querying requires SQL knowledge, making data exploration di
 
 ```text
 User Query
-    ↓
+     ↓
 Streamlit UI
-    ↓
+     ↓
 LangChain + LLM
-    ↓
-Schema Context Injection
-    ↓
-SQL Generation
-    ↓
-PostgreSQL Execution
-    ↓
+(Schema Context + SQL Generation)
+     ↓
+PostgreSQL
+(Query Execution)
+     ↓
 Pandas DataFrame
-    ↓
-Visualization Layer
-    ↓
-Charts + Insights
+     ├── Visualization
+     └── LLM-based Insights
+     ↓
+Interactive Results Dashboard
 ```
 ---
 
@@ -96,6 +96,10 @@ Results are displayed as:
 - Bar Charts
 - Line Charts
 - Pie Charts
+
+**Step 6: Insights**
+
+LLM uses the data to generate explanation for business needs in the form of summary, key insights and important observations.
 
 ---
 
@@ -167,9 +171,9 @@ streamlit run main.py
 ## Example Queries
 
 ### Try asking:
-- Top 3 categories with maximum sales.
-- Top 3 regions with maximum profit
-- Payment method distribution
+- How many products were sold over time?
+- Show the top 10 products with the highest total sales revenue along with their category and brand.
+- Which product categories generated the most revenue, and how many unique customers purchased from each category?
 
 ---
 
@@ -177,16 +181,9 @@ streamlit run main.py
 
 ### Automatic chart detection
 
-One of the major challenges was designing a system that could automatically choose the most suitable visualization for dynamically generated query results.
+Since the generated SQL queries could return different column combinations every time, creating reliable charts was difficult. In several cases, visualizations were not getting generated correctly because columns were being interpreted with incorrect data types (for example, dates being treated as objects or numeric values not being detected properly).
 
-Since users can ask any type of analytical question, the structure of the returned dataset changes frequently (e.g., categorical vs numerical data, time-series data, single-column outputs, aggregated metrics). A single fixed chart type was not practical.
-
-To address this, I implemented a rule-based visualization layer that analyzes the returned Pandas DataFrame and selects charts based on data patterns:
-
-- **Category + Numeric → Bar Chart**
-- **Datetime + Numeric → Line Chart**
-- **Single Numeric Column → Histogram**
-- **Small Category Groups → Pie Chart**
+To solve this, I repeatedly debugged and improved the datatype detection logic by dynamically converting columns into appropriate formats such as numeric and datetime whenever possible. I also refined the visualization conditions to handle different query outputs instead of assuming a fixed structure. This process involved multiple iterations of testing and debugging to make the dashboard more reliable for real-world, unpredictable SQL results.
 
 ---
 

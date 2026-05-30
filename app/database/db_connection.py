@@ -20,9 +20,9 @@ for table_name,filepath in files.items():
         df.columns.str.strip().str.lower()
     )
     if 'order_date' in df.columns:
-        df['order_date']=pd.to_datetime(df['order_date'])
+        df['order_date']=pd.to_datetime(df['order_date'],dayfirst=True,errors="coerce")
     if 'signup_date' in df.columns:
-        df['signup_date']=pd.to_datetime(df['signup_date'])
+        df['signup_date']=pd.to_datetime(df['signup_date'],dayfirst=True,errors="coerce")
     df.to_sql(table_name,
               engine,
               if_exists="replace",

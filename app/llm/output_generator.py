@@ -1,4 +1,4 @@
-from .prompt_template import get_prompt,analysis_prompt
+from .prompt_template import get_prompt,analysis_prompt,scope_prompt
 from app.utils.query_executor import execute_query
 from langchain_groq import ChatGroq
 import os
@@ -18,6 +18,13 @@ llm=ChatGroq(
 
 def generate_sql(question):
     schema=load_schema()
+    scope=scope_prompt(schema=schema,question=question)
+    scope_response=llm.invoke(scope)
+    is_valid=scope_response.content.strip().upper()
+    if is_valid=="NO":
+        raise ValueError(
+            "This question is outside the scope of the database."
+        )
     prompt=get_prompt(schema=schema,question=question)
     response=llm.invoke(prompt)
 

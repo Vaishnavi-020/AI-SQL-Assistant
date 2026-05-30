@@ -152,6 +152,29 @@ def get_prompt(schema,question):
     
     return formatted_prompt
 
+def scope_prompt(schema,question):
+    prompt=PromptTemplate(
+        template="""
+    You are a database assistant.
+
+    Database schema:
+    {schema}
+    User question:
+    {question}
+
+    Task:
+    Determine whether this question can be answered using the provided database schema.
+
+    Rules:
+    - Return ONLY "Yes" if answerable from database.
+    - Return ONLY "NO" if unrelated to database.
+    """,
+    input_variables=["schema","question"]
+        )
+    formatted_prompt=prompt.format(schema=schema,question=question)
+
+    return formatted_prompt
+
 def analysis_prompt(question,sql_query,df):
     prompt=PromptTemplate(
         template="""
