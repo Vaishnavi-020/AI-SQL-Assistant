@@ -2,6 +2,24 @@
 
 Built an AI-powered SQL Analytics Assistant using LangChain, PostgreSQL, and Streamlit that converts natural language into SQL queries, executes them on structured databases, generates dynamic visualizations, and produces automated business insights using LLMs.
 
+---
+
+## Screenshots
+
+### Natural Language to SQL
+Users can ask business questions in natural language, and the system generates SQL automatically.
+
+<img src="images/sql_generation.png" width="800" />
+
+### Result & Visualization
+Automatic chart generation from SQL results.
+
+<img src="images/Result.png" width="800" />
+
+### AI-Powered Business Insights
+LLM-generated explanation of query results.
+
+<img src="images/Explanation.png" width="800" />
 
 ---
 
@@ -189,7 +207,6 @@ To solve this, I repeatedly debugged and improved the datatype detection logic b
 
 ## Future Improvements
 - Authentication System
-- Query Explanation
 - Deployment
 
 ---
