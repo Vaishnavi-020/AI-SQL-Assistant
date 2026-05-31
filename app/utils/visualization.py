@@ -12,7 +12,7 @@ def visualize(df):
             if df[col].dtype==object:
                 try:
                     if any(word in col.lower() for word in ['date','time']):
-                        df[col]=pd.to_datetime(df[col],format="%Y-%m-%d",errors="coerce")
+                        df[col]=pd.to_datetime(df[col],format='%d-%m-%Y',errors="coerce")
                 except Exception:
                     pass
         for col in df.columns:

@@ -133,7 +133,7 @@ Data Query AI Assistant/
 │
 ├───app
 │   ├───database
-│   │   │   db_connection.py
+│   │   │   load_data.py
 │   │   │   schema_loader.py
 │   │
 │   │
@@ -176,13 +176,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Setup Environment Variables
-# Create .env
+# Create a `.env` file in the project root:
 
-DATABASE_URL=
-API_KEY=
+```env
+DATABASE_URL=your_database_url
+API_KEY=your_groq_api_key
+```
 
 # Load dataset
-python db_connection.py
+python load_data.py
 
 # Run Application
 streamlit run main.py

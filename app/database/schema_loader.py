@@ -1,5 +1,5 @@
 from sqlalchemy import inspect
-from .db_connection import engine
+from .load_data import engine
 
 def load_schema():
     inspector=inspect(engine)

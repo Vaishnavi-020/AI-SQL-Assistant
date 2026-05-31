@@ -163,11 +163,17 @@ def scope_prompt(schema,question):
     {question}
 
     Task:
-    Determine whether this question can be answered using the provided database schema.
+    Determine whether the user is asking a question that could reasonably be answered using the database.
 
-    Rules:
-    - Return ONLY "Yes" if answerable from database.
-    - Return ONLY "NO" if unrelated to database.
+    Return YES if:
+    - The question is about sales, products, customers, orders, revenue, dates, categories, trends, quantities, analytics, etc.
+    - The question may refer to specific values that could exist inside the database (e.g., Yoga Mat, Laptop, Electronics).
+
+    Return NO if:
+    - The question is general knowledge.
+    - The question is unrelated to the database.
+
+    Return ONLY YES or NO.
     """,
     input_variables=["schema","question"]
         )
