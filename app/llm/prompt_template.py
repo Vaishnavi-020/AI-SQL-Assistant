@@ -152,35 +152,6 @@ def get_prompt(schema,question):
     
     return formatted_prompt
 
-def scope_prompt(schema,question):
-    prompt=PromptTemplate(
-        template="""
-    You are a database assistant.
-
-    Database schema:
-    {schema}
-    User question:
-    {question}
-
-    Task:
-    Determine whether the user is asking a question that could reasonably be answered using the database.
-
-    Return YES if:
-    - The question is about sales, products, customers, orders, revenue, dates, categories, trends, quantities, analytics, etc.
-    - The question may refer to specific values that could exist inside the database (e.g., Yoga Mat, Laptop, Electronics).
-
-    Return NO if:
-    - The question is general knowledge.
-    - The question is unrelated to the database.
-
-    Return ONLY YES or NO.
-    """,
-    input_variables=["schema","question"]
-        )
-    formatted_prompt=prompt.format(schema=schema,question=question)
-
-    return formatted_prompt
-
 def analysis_prompt(question,sql_query,df):
     prompt=PromptTemplate(
         template="""
