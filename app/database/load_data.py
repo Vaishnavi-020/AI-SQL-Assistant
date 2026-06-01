@@ -2,11 +2,15 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
 import pandas as pd
+import streamlit as st
 
 load_dotenv()
 
 
 engine = create_engine(os.getenv("DATABASE_URL"))
+
+if not engine:
+    engine=st.secrets["DATABASE_URL"]
 
 files={
     'customers':'app/dataset/customers (1).csv',
