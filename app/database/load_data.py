@@ -22,7 +22,7 @@ for table_name,filepath in files.items():
     if 'order_date' in df.columns:
         df['order_date']=pd.to_datetime(df['order_date'],format='%d-%m-%Y',errors="coerce")
     if 'signup_date' in df.columns:
-        df['signup_date']=pd.to_datetime(df['signup_date'],format='%d-%m-%Y',errors="coerce")
+        df['signup_date']=pd.to_datetime(df['signup_date'],format='%Y-%m-%d',errors="coerce")
     df.to_sql(table_name,
               engine,
               if_exists="replace",
