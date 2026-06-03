@@ -1,7 +1,11 @@
 import streamlit as st
-from app.llm.output_generator import generate_sql,generate_analysis
-from app.utils.query_executor import execute_query
-from app.utils.visualization import visualize
+import requests
+import pandas as pd
+
+from visualization import visualize
+
+
+API_URL = "http://localhost:8000/query"
 
 st.title("AI SQL Analytics Assistant")
 
@@ -44,22 +48,29 @@ if st.button("Generate"):
         st.warning("Please enter a question")
     else:
         try:
-            sql_query=generate_sql(question)
+            response=requests.post(API_URL,
+                                   json={"question":question})
+            response.raise_for_status()
 
+            data=response.json()
             st.subheader("Generated SQL")
-            st.code(sql_query,
+            st.code(data["sql_query"],
                     language="sql")
-            df=execute_query(sql_query)
+            df=pd.DataFrame(data["results"])
+
             st.subheader("Results")
             st.dataframe(df)
 
             visualize(df)
-            analysis=generate_analysis(question,sql_query,df)
             st.subheader("Explanation")
-            st.write(analysis)
-        except ValueError as e:
+            st.write(data["analysis"])
+
+        except requests.exceptions.RequestException as e:
+            st.error(f"Backend Error: {str(e)}")
+
+        except requests.exceptions.HTTPError:
             st.error(
-                f"Error: {str(e)}"
+                response.json()['detail']
             )
         except Exception as e:
             st.error(

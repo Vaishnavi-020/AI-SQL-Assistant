@@ -3,7 +3,7 @@ from langchain_groq import ChatGroq
 import os
 from dotenv import load_dotenv
 import streamlit as st
-from app.database.schema_loader import load_schema
+from backend.database.schema_loader import load_schema
 import certifi
 
 load_dotenv()

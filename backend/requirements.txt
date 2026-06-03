@@ -1,0 +1,11 @@
+psycopg2-binary 
+sqlalchemy 
+pandas
+python-dotenv
+langchain
+langchain_community
+langchain_core
+langchain_groq
+fastapi
+uvicorn
+pydantic

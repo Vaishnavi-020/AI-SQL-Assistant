@@ -13,9 +13,9 @@ if not engine:
     engine=st.secrets["DATABASE_URL"]
 
 files={
-    'customers':'app/dataset/customers (1).csv',
-    'orders':'app/dataset/orders (1).csv',
-    'products':'app/dataset/products (1).csv'
+    'customers':'backend/dataset/customers (1).csv',
+    'orders':'backend/dataset/orders (1).csv',
+    'products':'backend/dataset/products (1).csv'
 }
 
 for table_name,filepath in files.items():
