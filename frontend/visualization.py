@@ -7,20 +7,7 @@ def visualize(df):
         if df.empty:
             st.warning("No data found")
             return
-        df=df.copy()
-        for col in df.columns:
-            if df[col].dtype==object:
-                try:
-                    if any(word in col.lower() for word in ['date','time']):
-                        df[col]=pd.to_datetime(df[col],format='%d-%m-%Y',errors="coerce")
-                except Exception:
-                    pass
-        for col in df.columns:
-            if df[col].dtype==object:    
-                try:
-                    df[col]=pd.to_numeric(df[col])
-                except Exception:
-                    pass
+        
         numeric_cols=df.select_dtypes(
             include=["number"]
         ).columns.tolist()

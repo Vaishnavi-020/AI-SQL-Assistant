@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
-
+from clean_df import clean_dataframe
 from visualization import visualize
 
 
@@ -58,6 +58,8 @@ if st.button("Generate"):
                     language="sql")
             df=pd.DataFrame(data["results"])
 
+            df=clean_dataframe(df)
+            
             st.subheader("Results")
             st.dataframe(df)
 
@@ -65,15 +67,14 @@ if st.button("Generate"):
             st.subheader("Explanation")
             st.write(data["analysis"])
 
-        except requests.exceptions.RequestException as e:
-            st.error(f"Backend Error: {str(e)}")
-
         except requests.exceptions.HTTPError:
-            st.error(
-                response.json()['detail']
-            )
+            try:
+                st.error(response.json().get("detail", "HTTP Error"))
+            except:
+                st.error(f"HTTP Error: {response.status_code}")
+
+        except requests.exceptions.RequestException as e:
+            st.error(f"Request failed: {str(e)}")
+
         except Exception as e:
-            st.error(
-                f"Unexpected Error:"
-                f"{str(e)}"
-            )
+            st.error(f"Unexpected Error: {str(e)}")
