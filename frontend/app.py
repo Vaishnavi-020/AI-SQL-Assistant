@@ -5,7 +5,7 @@ from clean_df import clean_dataframe
 from visualization import visualize
 
 
-API_URL = "https://data-query-ai-assistant.onrender.com/docs#/default/query_query_post"
+API_URL = "https://data-query-ai-assistant.onrender.com/query"
 
 st.title("AI SQL Analytics Assistant")
 
