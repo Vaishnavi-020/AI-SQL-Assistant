@@ -1,5 +1,5 @@
-from ..model.prompt_template import analysis_prompt
-from ..model.llm_model import llm
+from model.prompt_template import analysis_prompt
+from model.llm_model import llm
 
 def generate_analysis(question,sql_query,df):
     if df is None or df.empty:

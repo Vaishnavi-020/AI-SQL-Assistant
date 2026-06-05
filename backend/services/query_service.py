@@ -1,6 +1,6 @@
-from backend.database.schema_loader import load_schema
-from ..model.llm_model import llm
-from ..model.prompt_template import get_prompt
+from database.schema_loader import load_schema
+from model.llm_model import llm
+from model.prompt_template import get_prompt
 
 def generate_sql(question):
     schema=load_schema()

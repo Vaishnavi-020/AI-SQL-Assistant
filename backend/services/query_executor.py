@@ -1,4 +1,4 @@
-from ..database.load_data import engine
+from database.load_data import engine
 import pandas as pd
 from sqlalchemy import text
 

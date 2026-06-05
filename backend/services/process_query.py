@@ -1,6 +1,6 @@
-from backend.services.analysis_service import generate_analysis
-from backend.services.query_service import generate_sql
-from backend.services.query_executor import execute_query
+from services.analysis_service import generate_analysis
+from services.query_service import generate_sql
+from services.query_executor import execute_query
 
 def process_query_service(question):
     sql_query=generate_sql(question)

@@ -9,9 +9,9 @@ engine = create_engine(os.getenv("DATABASE_URL"))
 
 
 files={
-    'customers':'backend/dataset/customers (1).csv',
-    'orders':'backend/dataset/orders (1).csv',
-    'products':'backend/dataset/products (1).csv'
+    'customers':'dataset/customers (1).csv',
+    'orders':'dataset/orders (1).csv',
+    'products':'dataset/products (1).csv'
 }
 
 for table_name,filepath in files.items():
