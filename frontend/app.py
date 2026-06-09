@@ -7,6 +7,8 @@ from visualization import visualize
 
 API_URL = "https://data-query-ai-assistant.onrender.com/query"
 
+st.write(pd.__version__)
+
 st.title("AI SQL Analytics Assistant")
 
 st.subheader("💡 Try These Questions")
@@ -59,7 +61,9 @@ if st.button("Generate"):
             df=pd.DataFrame(data["results"])
 
             df=clean_dataframe(df)
-            
+            st.write(df.dtypes)
+            for col in df.columns:
+                st.write(col,df[col].dtype)
             st.subheader("Results")
             st.dataframe(df)
 
