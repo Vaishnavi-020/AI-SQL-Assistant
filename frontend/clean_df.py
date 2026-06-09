@@ -21,11 +21,16 @@ def clean_dataframe(df):
                 pass
 
     for col in df.columns:
-
-        if df[col].dtype == object:
-
+        if (
+        pd.api.types.is_object_dtype(df[col])
+        or pd.api.types.is_string_dtype(df[col])
+        ):
             try:
-                df[col] = pd.to_numeric(df[col])
+                converted = pd.to_numeric(
+                    df[col],
+                    errors="raise"
+                )
+                df[col] = converted
             except:
                 pass
 
